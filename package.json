@@ -1,0 +1,19 @@
+{
+  "name": "node_ussd",
+  "version": "1.0.0",
+  "description": "ussd app built with nodejs and africastalking.com service",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon node app.js"
+  },
+  "keywords": [
+    "USSD",
+    "NODE"
+  ],
+  "author": "zeimedee@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
