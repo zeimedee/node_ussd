@@ -16,7 +16,7 @@ app.post('*', (req,res) => {
     let response = '';
     
     
-    if(text == ' '){
+    if(text = ''){
         //first request
          response =`CON What will you like to know ? 
         1.my name?
