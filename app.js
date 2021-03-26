@@ -22,12 +22,14 @@ app.post('*', (req,res) => {
     else if(text == '1'){
         //logic for first level
          response = `END my name is alex`;
-    }else if(text == '2'){
+    }
+    else if(text == '2'){
          response =  `END my phone number is ${phoneNumber}`;
-    }else{
+    }
+    else{
         res.status(404).send('Bad request')
     }
-    res.set('Content-Type: text/plain')
+    // res.set('Content-Type: text/plain')
     res.send(response);
 });
 
