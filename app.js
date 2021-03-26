@@ -14,22 +14,22 @@ app.post('*', (req,res) => {
     let response = '';
     
     
-    if(text == ''){
+    if(text == '1'){
         //first request
          response =`CON What will you like to know ? 
         1.my name?
         2.phone number? `;
     }
-    else if(text == '1'){
+    else if(text == '1*1'){
         //logic for first level
         response = `END my name is alex`;
     }
-    else if(text == '2'){
+    else if(text == '1*2'){
       response =  `END my phone number is ${phoneNumber}`;
     }
-    // else{
-    //     res.status(404).send('END Bad request from user ')
-    // }
+    else{
+        res.status(404).send('END Bad request from user ')
+    }
 
     res.set('Content-Type: text/plain');
     res.send(response);
