@@ -10,26 +10,24 @@ app.get('*', (req,res)=>{
 });
 
 app.post('*', (req,res) => {
-    let {sessionId, serviceCode, phoneNumber, text } = req.body
+    let {sessionId, serviceCode, phoneNumber, text } = req.body;
+    let response ='';
 
-    if(text == '1'){
+    if(text == ''){
         //first request
-  let response =`CON What will you like to know ? 
+   response =`CON What will you like to know ? 
         1.my name?
         2.my cat' name? `
-        res.send(response);
     }
-    else if(text = '1*1'){
+    else if(text = '1'){
         //logic for first level
-        let response = `END my name is alex`;
-        res.send(response);
-    }else if(text = '1*2'){
-        let response =  `END my cats name is iggy`;
-        res.send(response)
+         response = `END my name is alex`;
+    }else if(text = '2'){
+         response =  `END my cats name is iggy`;
     }else{
         res.status(404).send('Bad request')
     }
-
+    res.send(response)
 });
 
 
