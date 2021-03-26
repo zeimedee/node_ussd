@@ -19,11 +19,11 @@ app.post('*', (req,res) => {
         1.my name?
         2.phone number? `
     }
-    else if(text == '1'){
+    else if(text == 1){
         //logic for first level
          response = `END my name is alex`;
     }
-    else if(text == '2'){
+    else if(text == 1){
          response =  `END my phone number is ${phoneNumber}`;
     }
     else{
