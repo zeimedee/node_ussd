@@ -11,46 +11,29 @@ app.get('*', (req,res)=>{
 
 app.post('*', (req,res) => {
     let {sessionId, serviceCode, phoneNumber, text } = req.body;
-    res.set('Content-Type: text/plain')
+    let response = '';
     
-    // if(text === ''){
-    //     //first request
-    //     let response =`CON What will you like to know ? 
-    //     1.my name?
-    //     2.phone number? `;
-    //     res.send(response);
-    // }
-    // else if(text == '2'){
-    //     //logic for first level
-    //    let  response = `END my name is alex`;
-    //    res.send(response);
-    // }
-    // else if(text == '2'){
-    //    let  response =  `END my phone number is ${phoneNumber}`;
-    //    res.send(response);
-    // }
-    // else{
-    //     res.status(404).send('END Bad request from user ')
-    // }
     
-    switch(text){
-        case '':
-             let response =`CON What will you like to know ? 
-                 1.my name?
-                 2.phone number? `;
-                 res.send(response);
-            break;
-        case '1':
-            let response = `END my name is Alex`;
-            res.send(response);
-            break;
-        case '2':
-            let response = `END phone number is ${phoneNumber}`;
-            res.send(response);
-            break;
-        default:
-            res.send('END Bad request from user')
+    if(text == ''){
+        //first request
+         response =`CON What will you like to know ? 
+        1.my name?
+        2.phone number? `;
     }
+    else if(text == '2'){
+        //logic for first level
+        response = `END my name is alex`;
+    }
+    else if(text == '2'){
+      response =  `END my phone number is ${phoneNumber}`;
+    }
+    else{
+        res.status(404).send('END Bad request from user ')
+    }
+
+    res.set('Content-Type: text/plain');
+    res.send(response);
+
     
 });
 
