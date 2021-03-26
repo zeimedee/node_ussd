@@ -11,26 +11,29 @@ app.get('*', (req,res)=>{
 
 app.post('*', (req,res) => {
     let {sessionId, serviceCode, phoneNumber, text } = req.body;
-    let response ='';
-
+    res.set('Content-Type: text/plain')
+    
     if(text == ''){
         //first request
-   response =`CON What will you like to know ? 
+        let response =`CON What will you like to know ? 
         1.my name?
-        2.phone number? `
+        2.phone number? `;
+        res.send(response);
     }
-    else if(text == 1){
+    else if(text == '2'){
         //logic for first level
-         response = `END my name is alex`;
+       let  response = `END my name is alex`;
+       res.send(response);
     }
-    else if(text == 1){
-         response =  `END my phone number is ${phoneNumber}`;
+    else if(text == '2'){
+       let  response =  `END my phone number is ${phoneNumber}`;
+       res.send(response);
     }
     else{
-        res.send('Bad request from user ')
+        res.status(404).send('END Bad request from user ')
     }
-    // res.set('Content-Type: text/plain')
-    res.send(response);
+    
+    
 });
 
 
