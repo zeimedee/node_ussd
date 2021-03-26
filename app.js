@@ -17,13 +17,13 @@ app.post('/', (req,res) => {
         //first request
    response =`CON What will you like to know ? 
         1.my name?
-        2.my cat' name? `
+        2.phone number? `
     }
     else if(text == '1'){
         //logic for first level
          response = `END my name is alex`;
     }else if(text == '2'){
-         response =  `END my cats name is iggy`;
+         response =  `END my phone number is ${phoneNumber}`;
     }else{
         res.status(404).send('Bad request')
     }
