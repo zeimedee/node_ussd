@@ -13,7 +13,7 @@ app.post('*', (req,res) => {
     let {sessionId, serviceCode, phoneNumber, text } = req.body;
     res.set('Content-Type: text/plain')
     
-    if(text == ''){
+    if(text === ''){
         //first request
         let response =`CON What will you like to know ? 
         1.my name?
