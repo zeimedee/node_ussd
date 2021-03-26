@@ -9,7 +9,7 @@ app.get('*', (req,res)=>{
     res.send('this is my first USSD app')
 });
 
-app.post('*', (req,res) => {
+app.post('/', (req,res) => {
     let {sessionId, serviceCode, phoneNumber, text } = req.body;
     let response ='';
 
@@ -19,10 +19,10 @@ app.post('*', (req,res) => {
         1.my name?
         2.my cat' name? `
     }
-    else if(text = '1'){
+    else if(text == '1'){
         //logic for first level
          response = `END my name is alex`;
-    }else if(text = '2'){
+    }else if(text == '2'){
          response =  `END my cats name is iggy`;
     }else{
         res.status(404).send('Bad request')
