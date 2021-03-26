@@ -27,7 +27,7 @@ app.post('*', (req,res) => {
          response =  `END my phone number is ${phoneNumber}`;
     }
     else{
-        res.status(404).send('Bad request')
+        res.send('Bad request from user ')
     }
     // res.set('Content-Type: text/plain')
     res.send(response);
