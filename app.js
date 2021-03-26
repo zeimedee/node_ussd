@@ -16,7 +16,9 @@ app.post('*', (req,res) => {
     
     if(text == ''){
         //first request
-         
+         response =`CON What will you like to know ? 
+        1.my name?
+        2.phone number? `;
     }
     else if(text == '1'){
         //logic for first level
@@ -25,12 +27,9 @@ app.post('*', (req,res) => {
     else if(text == '2'){
       response =  `END my phone number is ${phoneNumber}`;
     }
-    else{
-        response =`CON What will you like to know ? 
-        1.my name?
-        2.phone number? `;
-        // res.status(404).send('END Bad request from user ')
-    }
+    // else{
+    //     res.status(404).send('END Bad request from user ')
+    // }
 
     res.set('Content-Type: text/plain');
     res.send(response);
