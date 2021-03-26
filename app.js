@@ -27,7 +27,8 @@ app.post('*', (req,res) => {
     }else{
         res.status(404).send('Bad request')
     }
-    res.send(response)
+    res.set('Content-Type: text/plain')
+    res.send(response);
 });
 
 
