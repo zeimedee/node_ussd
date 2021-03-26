@@ -9,7 +9,7 @@ app.get('*', (req,res)=>{
     res.send('this is my first USSD app')
 });
 
-app.post('/', (req,res) => {
+app.post('*', (req,res) => {
     let {sessionId, serviceCode, phoneNumber, text } = req.body;
     let response ='';
 
