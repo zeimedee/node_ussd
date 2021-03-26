@@ -14,6 +14,7 @@ app.get('*', (req,res)=>{
 app.post('*', (req,res) => {
     let {sessionId, serviceCode, phoneNumber, text } = req.body;
     res.set('Content-Type: text/plain');
+    console.log(text)
     
     if(text == ''){
         //first request
