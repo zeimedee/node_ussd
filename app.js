@@ -5,6 +5,8 @@ const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
 
+
+
 app.get('*', (req,res)=>{
     res.send('this is my first USSD app')
 });
@@ -14,17 +16,17 @@ app.post('*', (req,res) => {
     let response = '';
     
     
-    if(text == '1'){
+    if(text == ' '){
         //first request
          response =`CON What will you like to know ? 
         1.my name?
         2.phone number? `;
     }
-    else if(text == '1*1'){
+    else if(text == '1'){
         //logic for first level
         response = `END my name is alex`;
     }
-    else if(text == '1*2'){
+    else if(text == '2'){
       response =  `END my phone number is ${phoneNumber}`;
     }
     else{
