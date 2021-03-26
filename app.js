@@ -3,7 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 
-app.use(express.json());
+// app.use(express.json());
 
 
 
@@ -13,30 +13,28 @@ app.get('*', (req,res)=>{
 
 app.post('*', (req,res) => {
     let {sessionId, serviceCode, phoneNumber, text } = req.body;
-    let response = '';
+    res.set('Content-Type: text/plain');
     
-    
-    if(text = ''){
+    if(text == ''){
         //first request
-         response =`CON What will you like to know ? 
+      let response =`CON What will you like to know ? 
         1.my name?
         2.phone number? `;
+        res.send(response);
     }
     else if(text == '1'){
         //logic for first level
-        response = `END my name is alex`;
+       let response = `END my name is alex`;
+        res.status(200).send(response);
     }
     else if(text == '2'){
-      response =  `END my phone number is ${phoneNumber}`;
+        let response =  `END my phone number is ${phoneNumber}`;
+        res.status(200).send(response);
     }
     else{
         res.status(404).send('END Bad request from user ')
     }
-
-    res.set('Content-Type: text/plain');
-    res.send(response);
-
-    
+   
 });
 
 
